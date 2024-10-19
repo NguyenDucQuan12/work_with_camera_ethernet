@@ -21,7 +21,7 @@ Cài đặt đơn giản `opencv` nhất là sử dụng `pip`. Mở dự án, k
 ```python
 pip install opencv-python
 ```
-![cài đặt opencv thông qua pip](image\install_opencv_pip.png)
+![cài đặt opencv thông qua pip](image/install_opencv_pip.png)
 
 Như vậy là đã cài đặt thành công `opencv`  
 
