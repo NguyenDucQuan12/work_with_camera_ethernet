@@ -1,0 +1,64 @@
+{
+  "app":{
+    "start_app": "プログラム起動",
+    "end_app": "プログラム終了"
+  },
+
+  "camera":{
+    "connected_camera": "アドレスがあるカメラ接続済: ",
+    "cannot_connect_camera": "アドレスがあるカメラ接続不可能: ",
+    "error_read_frame": "カメラからフレームを取れない: ",
+    "release_camera": "カメラリリース: ",
+    "error_snapshort": "撮影エラー",
+    "face_cam_in": "入る時の顔のカメラ",
+    "face_cam_out": "出る時の顔のカメラ",
+    "license_plate_cam_in": "入る時のナンバープレートのカメラ",
+    "license_plate_cam_out": "出る時のナンバープレートのカメラ"
+  },
+  
+  "color":
+  {
+    "terumo_color":"#3cb371",
+    "green_color": "#0E6655",
+    "white_color":  "white",
+    "success_color": "#4cd137",
+    "red_color": "red",
+    "yellow_nhat": "#f1c40f"
+  },
+
+  "gui": {
+    "face_in": "入る時画像",
+    "face_out": "出る時画像",
+    "registration_image": "登録済画像",
+    "license_plate_in": "入るバイクナンバープレート画像",
+    "license_plate_out": "出るバイクナンバープレート画像",
+    "result": "結果",
+    "success_in": "ガレージに入る車両のナンバープレート記録済: ",
+    "success_out": "ガレージに出る車両のナンバープレート記録済: "
+  },
+
+  "mode_lane": {
+    "lane_in": "入",
+    "lane_out": "出"
+  },
+
+  "error": {
+    "error_connect": "接続エラー",
+    "error_camera": "ITカメラに接続不可能、ITに連絡",
+    "no_license_plate": "ナンバープレート認識不可能",
+    "disconnect_server": "サーバへの接続切断",
+    "no_avatar": "画像無しまたはサーバからダウンロード画像に問題がある為、デフォルト画像使用　",
+    "error_get_avatar_from_server": "サーバから画像を取れない",
+    "cannot_detect_license_plate": "画像にナンバープレート発見不可能"
+  },
+
+  "PLC": {
+    "cannot_connect_PLC": "PLCへ接続不可能、システム検査必要",
+    "cannot_connect_sensor": "センサーへ接続不可能、システム再確認必要"
+  },
+
+  "font": {
+    "font1": "Helvetica 25 bold"
+  }
+  }
+  

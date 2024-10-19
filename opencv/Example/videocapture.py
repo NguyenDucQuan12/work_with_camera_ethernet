@@ -1,5 +1,6 @@
 import threading
 import cv2
+import time
 import PIL.ImageTk, PIL.Image
 import time
 from language.language_manager import language_system
@@ -34,12 +35,13 @@ class VideoCapture:
         self.ret = False
         self.frame = None
 
+        self.width = 500
+        self.height = 400
+
         # số lần thử kết nối lại
         self.count = 0
         # Hình ảnh mặc định khi mất kết nối tới camera
-        default_image_ = PIL.Image.open("assets/image/disconnected.png")
-        # self.disconnected_camera= PIL.ImageTk.PhotoImage(default_image_)
-        self.disconnected_camera= cv2.imread("assets/image/disconnected.png")
+        self.disconnected_camera= cv2.imread("opencv/image/disconnected.png")
         
         # Cố gắng kết nối với camera trong luồng khác với luồng chính của giao diện tkinter
         self.thread_open_camera = threading.Thread(target=self.open_camera)
@@ -64,8 +66,11 @@ class VideoCapture:
     def process(self):        
         while self.camera_connected:
             try:
-                self.ret, self.frame = self.vid.read()
-                if not self.ret:
+                self.ret, frame = self.vid.read()
+
+                if self.ret:
+                    self.frame = cv2.resize(frame, (self.width, self.height))
+                else:
                     logger.error('%s %s', language_system.get_text("camera.error_read_frame"), self.video_source)
                     self.frame = None
                     self.ret = False
@@ -89,6 +94,21 @@ class VideoCapture:
     # Trả về frame hiện tại
     def get_frame(self):
         return self.ret, self.frame
+    
+    def snapshot(self):
+        if not self.ret:
+            print('[MyVideoCapture] no frame for snapshot')
+        else:
+            if not filename:
+                filename = time.strftime("frame-%d-%m-%Y-%H-%M-%S.jpg")
+
+            if not self.convert_pillow:
+                cv2.imwrite(filename, self.frame)
+                print('[MyVideoCapture] snapshot (using cv2):', filename)
+            else:
+                self.frame.save(filename)
+                print('[MyVideoCapture] snapshot (using pillow):', filename)
+
 
     # Giải phóng tài nguyên khi kết thúc ghi hình, gọi hàm này để kết thúc đúng cách
     def release_camera(self):

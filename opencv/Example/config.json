@@ -1,0 +1,8 @@
+{
+    "Camera_IP": {
+        "rtsp_cam_1": "rtsp://192.168.0.122:554/1/stream1/Profile1",
+        "rtsp_cam_2": "rtsp://192.168.0.21:554/1/stream1/Profile1",
+        "rtsp_cam_3": "rtsp://192.168.0.42:554/1/stream1/Profile1",
+        "rtsp_cam_4": "rtsp://192.168.0.92:554/1/stream1/Profile1"
+    }
+}

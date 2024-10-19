@@ -3,7 +3,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-json_filename = "src/language/language_manager.json"
+json_filename = "opencv/Example/language/language_manager.json"
+
 with open(json_filename, 'r') as inside:
     data = json.load(inside)
 
@@ -20,11 +21,11 @@ class LanguageLoader:
         Load ngôn ngữ từ tệp JSON
         """
         try:
-            with open(f'src/language/{language}/language.json', 'r', encoding='utf-8') as f:
+            with open(f'opencv/Example/language/{language}/language.json', 'r', encoding='utf-8') as f:
                 self.lang_dict = json.load(f)
         except FileNotFoundError:
             logger.warning(f"Ngôn ngữ {language} không tồn tại, sử dụng tiếng Việt mặc định.")
-            with open('src/language/Vietnamese/language.json', 'r', encoding='utf-8') as f:
+            with open('opencv/Example/language/Vietnamese/language.json', 'r', encoding='utf-8') as f:
                 self.lang_dict = json.load(f)
 
     # def change_language_to_japanese(self, language):
