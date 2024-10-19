@@ -15,6 +15,8 @@
 
 - [2. Sử dụng bằng cách gọi thư viện ffmpeg-python](#2-Sử-dụng-bằng-cách-gọi-thư-viện-ffmpeg---python)
 
+[III. Ví dụ](#iii-Ví-dụ)
+
 # I. FFMPEG
 
 ## 1. Cài đặt ffmpeg từ trang chủ
@@ -128,5 +130,23 @@ ffmpeg_audio_process = subprocess.Popen(command_audio, stdout=subprocess.PIPE)
 ## 2. Sử dụng bằng cách gọi thư viện ffmpeg-python
 
 Hiện tại mình chưa tìm hiểu được cách sử dụng thư viện python của ứng dụng này 1 cách tối ưu nhất, nên đành để dành cho các bạn đã tìm hiểu và thêm vào phần mình đang thiếu xót
+
+
+# III. Ví dụ
+Thông số thiết bị mình dùng để thử nghiệm:  
+
+| Thiết bị | Phiên bản |
+| :--- | :--- |
+| FFMPEG | 17-10-2024 GyanD|
+| Camera | Dmax DMC 2054 BZW |
+| Python Virtual enviroment | 3.10.9 |
+| Window | 11 pro for workstation |
+
+Các đoạn code mình sử dụng tất cả đều là `python`, tuy nhiên vẫn còn một điểm mình chưa thể khắc phục được đó là trong 1 một số trường hợp thì camera chỉ chạy được 4s, và sau đó sẽ bị đóng băng hình ảnh, bạn cần phải khởi động lại quá trình thì sẽ mất.  
+Ngắn gọn là:  
+
+> Đôi lúc nó chạy mượt mà, đôi lúc nó đóng băng  
+
+***Vì vậy nếu ai có giải pháp có thể khắc phục được lỗi này, xin hãy chia sẻ***  
 
 Ví dụ cụ thể xem tại thư mục [Ví dụ](./Ví%20dụ/)
