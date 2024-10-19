@@ -68,6 +68,7 @@ root.geometry("800x600")
 url_label = tk.Label(root, text="RTSP URL:")
 url_label.pack(pady=5)
 url_entry = tk.Entry(root, width=50)
+url_entry.insert(0, "rtsp://192.168.0.122:554/1/stream1/Profile1")
 url_entry.pack(pady=5)
 
 # Label và entry cho kích thước video
