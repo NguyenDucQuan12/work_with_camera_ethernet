@@ -10,12 +10,10 @@
 
 [II. Cách sử dụng](#ii-cách-sử-dụng)
 - [1. Sử dụng bằng cách gọi trực tiếp ffmpeg](#1-Sử-dụng-bằng-cách-gọi-trực-tiếp-ffmpeg)
-  - [1. Tiêu đề - Heading](#1-tiêu-đề---heading)
-  - [2. Đoạn văn - Paragraph](#2-đoạn-văn---paragraph)
-  - [3. Chữ in nghiêng - Italic](#3-chữ-in-nghiêng---italic)
-  - [4. Chữ in đậm - Bold](#4-chữ-in-đậm---bold)
-  - [5. In đậm và in nghiêng](#5-in-đậm-và-in-nghiêng)
+    - [1. Lệnh chỉ sử dụng hình ảnh](#1-Lệnh-chỉ-sử-dụng-hình-ảnh)
+    - [2. Lệnh lấy cả âm thanh từ camera](#2-Lệnh-lấy-cả-âm-thanh-từ-camrra)
 
+- [2. Sử dụng bằng cách gọi thư viện ffmpeg-python](#2-Sử-dụng-bằng-cách-gọi-thư-viện-ffmpeg---python)
 
 # I. FFMPEG
 
@@ -79,6 +77,7 @@ Như trên hình ảnh hiển thì thì nó đã có version `2024-10-17-git ...
 
 Để xem hình ảnh từ camera thì ta sử dụng phần mềm `ffmpeg`, khởi động phần mềm `ffmpeg` và đưa vào cho nó các thông số yêu cầu để chạy thông qua `python: 
 
+### 1. Lệnh chỉ sử dụng hình ảnh
 ```python
 
 # Thay đổi kích thước các khung hình từ camera
@@ -104,4 +103,30 @@ command_video = [
 # Khởi chạy FFmpeg và đọc từ stdout
 ffmpeg_process = subprocess.Popen(command, stdout=subprocess.PIPE)
 ```
+### 2. Lệnh lấy cả âm thanh từ camera
+
+```python
+# Lệnh FFmpeg để xử lý âm thanh (G711 mu-law)
+command_audio = [
+    'C:/ffmpeg/bin/ffmpeg.exe',  # Đường dẫn đến FFmpeg trên máy của bạn
+    '-loglevel', 'quiet', 
+    '-use_wallclock_as_timestamps', '1',  # Sử dụng thời gian thực cho dấu thời gian
+    '-rtsp_transport', 'tcp',
+    '-i', in_stream,
+    '-vn',  # Bỏ video, chỉ lấy âm thanh
+    '-acodec', 'pcm_s16le',  # Cân kiểm tra xem âm thanh của camera là loại nào trong cài đặt để set phù hợp, ví dụ âm thanh G711 mu-law, ...
+    '-ar', '8000',           # Tần số mẫu (8000 Hz)
+    '-ac', '1',              # 1 kênh âm thanh (mono)
+    '-f', 's16le',           # Định dạng raw
+    '-'
+]
+
+# Khởi chạy FFmpeg để xử lý âm thanh
+ffmpeg_audio_process = subprocess.Popen(command_audio, stdout=subprocess.PIPE)
+```
+
+## 2. Sử dụng bằng cách gọi thư viện ffmpeg-python
+
+Hiện tại mình chưa tìm hiểu được cách sử dụng thư viện python của ứng dụng này 1 cách tối ưu nhất, nên đành để dành cho các bạn đã tìm hiểu và thêm vào phần mình đang thiếu xót
+
 Ví dụ cụ thể xem tại thư mục [Ví dụ](./Ví%20dụ/)
