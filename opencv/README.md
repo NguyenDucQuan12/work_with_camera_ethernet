@@ -68,9 +68,12 @@ while camera_connected:
     except Exception as e:
         print('Lỗi không xác định: %s', str(e))
 ```
-Để có thể xử lý tốt các trường hợp có thể xảy ra trong việc đọc khung hình thì ta sử dụng `try-except` là phương án tốt nhất. Khi lấy khung hình từ câu lệnh `vid.read()` sẽ trả về 2 tham số là:  
+Để có thể xử lý tốt các trường hợp có thể xảy ra trong việc đọc khung hình thì ta sử dụng `try-except` là phương án tốt nhất.  
+Khi lấy khung hình từ câu lệnh `vid.read()` sẽ trả về 2 tham số là:  
+
 > ret: True (Tức là lấy được hình ảnh thành công)/ False (Tức là lấy khunh hình từ camera lỗi)  
 > frame: Nếu *ret* trả về là *True* thì frame này là một khung hình ngay lúc lấy (là một ma trận chứa các con số), còn nếu *ret* trả về *False* thì frame là *None*  
+
 Vì vậy ta cần kiểm tra kỹ càng giá trị `ret` trả về và xử lý tương ứng, như đoạn code trên thì nếu như ta kết nối được tới camera thì ta sẽ cho một `cờ (flag) để duy trì quá trình đọc khung hình từ camera` có tên là `camera_connected`, và chạy vòng lặp `while` để liên tục lấy các khung hình từ camera. Mỗi lần lấy khung hình từ camera thì ta đều **phải kiểm tra *ret*** rồi mới xử lý tiếp. Nếu `ret` mà trả về `False` thì có nghĩa là có lỗi với camera, ta cần cố gắng thửu lấy lại khung hình thêm 4 lần nữa, nếu sau 4 lần thử lại mà vẫn lỗi thì cần đóng vòng lặp `while` để không làm tiêu tốn bộ nhớ.  
 
 ## 2. Sử dụng vào thực tế
