@@ -133,7 +133,7 @@ class RTSPStreamer:
             command_video = [
                 'ffmpeg',  # Đường dẫn đến FFmpeg trên máy của bạn
                 '-nostdin',  # Không chờ đầu vào từ người dùng
-                # '-loglevel', 'error',  # Chỉ hiển thị lỗi
+                '-loglevel', 'error',  # Chỉ hiển thị lỗi
                 '-rtsp_transport', 'tcp',
                 '-i', in_stream,
                 '-vf', f'scale={self.target_width}:{self.target_height}',  # Thay đổi kích thước video
