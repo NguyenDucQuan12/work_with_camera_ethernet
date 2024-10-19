@@ -1,0 +1,57 @@
+{
+  "app":{
+    "start_app": "Khởi động chương trình",
+    "end_app": "Kết thúc chương trình"
+  },
+
+  "camera":{
+    "connected_camera": "Đã kết nối tới camera có địa chỉ: ",
+    "cannot_connect_camera": "Không thể kết nối tới camera có địa chỉ: ",
+    "error_read_frame": "Không thể lấy khung hình từ camera: ",
+    "release_camera": "Giải phóng camera: ",
+    "error_snapshort": "Không có hình ảnh để chụp"    
+  },
+  
+  "color":
+  {
+    "terumo_color":"#3cb371",
+    "green_color": "#0E6655",
+    "white_color":  "white",
+    "success_color": "#4cd137",
+    "red_color": "red"
+  },
+
+  "gui": {
+    "face_in": "Hình ảnh vào",
+    "face_out": "Hình ảnh ra",
+    "registration_image": "Hình ảnh đã đăng ký",
+    "license_plate_in": "Hình ảnh biển số xe vào",
+    "license_plate_out": "Hình ảnh biển số xe ra",
+    "result": "Kết Quả"
+  },
+
+  "mode_lane": {
+    "lane_in": "ĐI VÀO",
+    "lane_out": "ĐI RA"
+  },
+
+  "error": {
+    "error_connect": "Lỗi kết nối",
+    "error_camera": "Không thể kết nối tới camera, liên hệ IT",
+    "no_license_plate": "Không nhận diện được biển số",
+    "disconnect_server": "Mất kết nối tới server",
+    "no_avatar": "Sử dụng hình ảnh mặc định do chưa tải ảnh hoặc tải ảnh từ server lỗi",
+    "error_get_avatar_from_server": "Không thể lấy hình ảnh từ server",
+    "cannot_detect_license_plate": "Không biển số"
+  },
+
+  "PLC": {
+    "cannot_connect_PLC": "Không thể kết nối tới PLC",
+    "cannot_connect_sensor": "Mất kết nối tới Cảm biến"
+  },
+
+  "font": {
+    "font1": "Helvetica 25 bold"
+  }
+  }
+  

@@ -1,5 +1,6 @@
 # Ignore virtual environment
 .project_310/
+venv_project/
 
 # Ignore all rar
 *.rar
