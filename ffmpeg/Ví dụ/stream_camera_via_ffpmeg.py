@@ -9,6 +9,7 @@ import queue
 
 class RTSPStreamer:
     def __init__(self, root):
+
         self.root = root
         self.ffmpeg_process = None
         self.target_width = 640
@@ -21,7 +22,7 @@ class RTSPStreamer:
 
         # Giao diện Tkinter
         self.root.title("RTSP Video Streamer with Audio")
-        self.root.geometry("800x600")
+        self.root.geometry("800x700")
 
         # Label và entry cho URL RTSP
         url_label = tk.Label(self.root, text="RTSP URL:")
@@ -82,6 +83,7 @@ class RTSPStreamer:
                 try:
                     self.frame_queue.put(frame, timeout=0.1)
                 except queue.Full:
+                    print("Hàng đợi đã đầy")
                     pass  # Hàng đợi đầy, bỏ qua khung hình
             except Exception as e:
                 if not self.running:
@@ -118,13 +120,13 @@ class RTSPStreamer:
         in_stream = self.url_entry.get()
 
         if not in_stream:
-            messagebox.showerror("Error", "Please enter a valid RTSP URL")
+            messagebox.showerror("Lỗi", "Chưa điền đường dẫn RTSP của camera")
             return
 
         try:
             # Lệnh FFmpeg để xử lý video
             command_video = [
-                'C:/ffmpeg/bin/ffmpeg.exe',  # Đường dẫn đến FFmpeg trên máy của bạn
+                'ffmpeg',  # Đường dẫn đến FFmpeg trên máy của bạn
                 '-nostdin',  # Không chờ đầu vào từ người dùng
                 '-loglevel', 'error',  # Chỉ hiển thị lỗi
                 '-rtsp_transport', 'tcp',
