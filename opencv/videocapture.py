@@ -61,10 +61,7 @@ class VideoCapture:
             self.process()
         
     # Thực hiện luồng stream
-    def process(self):
-        # Giảm 1 tham số semaphore để đánh dấu là 1 luồng đã mở (nếu số luồng đã mở đạt max thì không cho mở nữa)
-        # semaphore.acquire()
-        
+    def process(self):        
         while self.camera_connected:
             try:
                 self.ret, self.frame = self.vid.read()
@@ -74,7 +71,7 @@ class VideoCapture:
                     self.ret = False
                     self.count += 1
 
-                    # Sau 5 lần thử lại mà vẫn không được thì ngắt kết nối tới camera
+                    # Sau 4 lần thử lại mà vẫn không được thì ngắt kết nối tới camera
                     if self.count == 3 :
                         self.camera_connected = False
                         self.frame = self.disconnected_camera
@@ -95,6 +92,7 @@ class VideoCapture:
 
     # Giải phóng tài nguyên khi kết thúc ghi hình, gọi hàm này để kết thúc đúng cách
     def release_camera(self):
+        # Hàm này được gọi để ngăn chặn thread lấy khung hình từ camera đang chạy liên tục
         if self.camera_connected:
             self.camera_connected = False
             
