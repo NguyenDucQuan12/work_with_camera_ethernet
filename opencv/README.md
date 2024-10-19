@@ -6,7 +6,7 @@
 - [1. Cài đặt opencv bằng pip](#1-cài-đặt-opencv-bằng-pip)
 
 [II. Cách sử dụng](#ii-cách-sử-dụng)
-- [1. Giải thích ban đầu](#1-Giải-thích-ban-dầu)
+- [1. Giải thích ban đầu](#1-Giải-thích-ban-đầu)
 
 - [2. Sử dụng vào thực tế](#2-Sử-dụng-vào-thực-tế)
 
