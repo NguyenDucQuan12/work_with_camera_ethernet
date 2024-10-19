@@ -112,6 +112,11 @@ self.thread_open_camera.start()
 
 # III. Ví dụ
 
+Để chạy ví dụ mẫu, vui lòng clone toàn bộ cấu trúc thư mục `opencv` để có thể hoạt dộng đúng với đường dẫn đã ghi trong code.  
+Sau đó kích hoạt môi trường ảo (nếu có) và chạy lệnh:  
 
-
+```python
+python opencv\Example\main.py
+```
+![demo phần mềm](image/demo.png)
 Ví dụ cụ thể xem tại thư mục [Ví dụ](./Example/)
