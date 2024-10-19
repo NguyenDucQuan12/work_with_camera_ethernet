@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import subprocess
 
-# URL RTSP từ camera
+# URL RTSP từ camera, mỗi camera sẽ có một đường dẫn rtsp riêng, để biết thì lên trang web của camera tham khảo
 in_stream = 'rtsp://192.168.0.122:554/1/stream1/Profile1'
 
 # Kiểm tra kích thước gốc của video bằng OpenCV
@@ -13,7 +13,7 @@ cap.release()
 
 print(f"Original Width: {width}, Height: {height}")
 
-# Thay đổi kích thước mục tiêu
+# Thay đổi kích thước phù hợp với màn hình và cấu hình của máy tính, hình ảnh càng lớn thì cần phải xử lý nhiều
 target_width = 640  # Kích thước mới (ví dụ 640x360)
 target_height = 360
 
@@ -36,7 +36,7 @@ while True:
     raw_frame = ffmpeg_process.stdout.read(target_width * target_height * 3)
 
     if len(raw_frame) != (target_width * target_height * 3):
-        print('Error reading frame!!!')
+        print('Không đủ số bytes cho một khung hình')
         break
 
     # Chuyển đổi dữ liệu thô thành numpy array và reshape về kích thước mới
