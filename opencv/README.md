@@ -14,7 +14,7 @@
 
 # I. Opencv
 
-## I. Cài đặt opencv bằng pip  
+## 1. Cài đặt opencv bằng pip  
 Truy cập trang chủ `opencv` trên [Pypi](https://pypi.org/project/opencv-python/) hoặc [Github](https://github.com/opencv/opencv-python)  
 Cài đặt đơn giản `opencv` nhất là sử dụng `pip`. Mở dự án, kích hoạt môi trường ảo và chạy câu lệnh sau bằng terminal: 
 
